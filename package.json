@@ -1,0 +1,19 @@
+{
+  "name": "odin-hashmap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DocQuantic/odin-hashmap.git"
+  },
+  "author": "DocQuantic <w.magrini@protonmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DocQuantic/odin-hashmap/issues"
+  },
+  "homepage": "https://github.com/DocQuantic/odin-hashmap#readme"
+}
