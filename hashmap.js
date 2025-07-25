@@ -30,9 +30,12 @@ export default class HashMap {
 
     get(key){
         const keyHash = this.hash(key)
-        const value = this.buckets[keyHash].value
-        if(value === undefined) return null
-        return value
+        if(this.buckets[keyHash] === undefined){
+            return null
+        } else {
+            const value = this.buckets[keyHash].value
+            return value
+        }
     }
 
     has(key){
@@ -53,7 +56,7 @@ export default class HashMap {
     length(){
         let count = 0
         for(b in this.buckets){
-            if(b.key != undefined){
+            if(b != undefined){
                 count++
             }
         }
@@ -67,9 +70,9 @@ export default class HashMap {
 
     keys(){
         let keys = []
-        for(b in this.buckets){
-            if(b.key != undefined){
-                keys.push(b.key)
+        for(let i=0; i<=this.capacity; i++){
+            if(this.buckets[i] != undefined){
+                keys.push(this.buckets[i].keyHash)
             }
         }
 
@@ -78,23 +81,23 @@ export default class HashMap {
 
     values(){
         let values = []
-        for(b in this.buckets){
-            if(b.key != undefined){
-                values.push(b.value)
+        for(let i=0; i<=this.capacity; i++){
+            if(this.buckets[i] != undefined){
+                values.push(this.buckets[i].value)
             }
         }
-        
+
         return values
     }
 
     entries(){
         let entries = []
-        for(b in this.buckets){
-            if(b.key != undefined){
-                entries.push([b.key, b.value])
+        for(let i=0; i<=this.capacity; i++){
+            if(this.buckets[i] != undefined){
+                entries.push([this.buckets[i].keyHash, this.buckets[i].value])
             }
         }
-        
+
         return entries
     }
 }
