@@ -15,7 +15,17 @@ test.set('jacket', 'blue')
 test.set('kite', 'pink')
 test.set('lion', 'golden')
 
-console.log(test.has('apple'))
+console.log(test.entries())
 
-test.remove('zaefbez')
-console.log(test.entries('apple'))
+test.set('cfgbe', 'qsdc')
+test.set('aqkz', 'liquhez')
+test.set('moajh', '*ùaopẑkd')
+test.set('pùkza', 'pùoazj')
+test.set('mobaz', 'mazcv')
+test.set('qazmcj', 'moazc')
+test.set('ejbfv', 'amzofv')
+test.set('mzaahn', 'aqzduhn')
+test.set('spoza', ',xpzamoj')
+
+
+console.log(test.entries())

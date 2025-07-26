@@ -17,14 +17,14 @@ export default class HashMap {
         return hashCode;
     } 
 
-    set(key, value){
+    set(key){
         const keyHash = this.hash(key)
 
         if (keyHash < 0 || keyHash >= this.capacity) {
             throw new Error("Trying to access index out of bounds");
         }
 
-        this.buckets[keyHash] = {keyHash, value}
+        this.buckets[keyHash] = {keyHash}
         this.load += 1/this.capacity
         this.checkLoad()
     }
@@ -34,7 +34,7 @@ export default class HashMap {
         if(this.buckets[keyHash] === undefined){
             return null
         } else {
-            const value = this.buckets[keyHash].value
+            const value = this.buckets[keyHash].keyHash
             return value
         }
     }
@@ -81,28 +81,6 @@ export default class HashMap {
         return keys
     }
 
-    values(){
-        let values = []
-        for(let i=0; i<=this.capacity; i++){
-            if(this.buckets[i] != undefined){
-                values.push(this.buckets[i].value)
-            }
-        }
-
-        return values
-    }
-
-    entries(){
-        let entries = []
-        for(let i=0; i<=this.capacity; i++){
-            if(this.buckets[i] != undefined){
-                entries.push([this.buckets[i].keyHash, this.buckets[i].value])
-            }
-        }
-
-        return entries
-    }
-
     checkLoad(){
         if(this.load > this.loadFactor){
             this.grow()
@@ -119,7 +97,7 @@ export default class HashMap {
 
         for(let i=0; i<=tmp.length; i++){
             if(tmp[i] != undefined){
-                this.set(tmp[i].keyHash, tmp[i].value)
+                this.set(tmp[i].keyHash)
             }
         }
     }
